@@ -1,0 +1,62 @@
+/*
+ * Single source of truth for the site's color palette.
+ * Change a value here and it updates everywhere that token is used
+ * (via Tailwind utilities like bg-background, text-foreground, etc.)
+ * Do not hardcode hex colors in components — add or edit a token here instead.
+ */
+
+:root {
+  /* Light Theme */
+  --background: #f7f7f2; /* page background */
+  --card: #ffffff; /* surface / card background */
+  --card-hover: #f0f0e9; /* surface hover state */
+  --muted: #f0f0e9; /* alternate/subtle section background */
+  --foreground: #171717; /* body text */
+  --muted-foreground: #6b6b6b; /* secondary / muted text */
+  --border: #e2e2dc;
+
+  --primary: #111111; /* ink — high-contrast structural color (buttons, avatar block) */
+  --primary-foreground: #ffffff; /* text/content on top of --primary */
+
+  --accent: #f5c518; /* brand yellow */
+  --accent-hover: #dfaf00; /* yellow hover state */
+  --accent-foreground: #171717; /* text on top of --accent */
+  --accent-subtle: #fff7cc; /* subtle yellow tint background */
+}
+
+[data-theme="dark"] {
+  /* Dark Theme — each surface is a visible step lighter than the one below it
+     (background < muted < card < card-hover) so panels read as elevated
+     instead of blending into the page. */
+  --background: #0a0a0a;
+  --muted: #121212;
+  --card: #181818;
+  --card-hover: #222222;
+  --foreground: #f5f5f5;
+  --muted-foreground: #a3a3a3;
+  --border: #2e2e2e;
+
+  --primary: #f5f5f0;
+  --primary-foreground: #0a0a0a;
+
+  --accent: #ffd21f;
+  --accent-hover: #e8b900;
+  --accent-foreground: #171717;
+  --accent-subtle: #292300;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-subtle: var(--accent-subtle);
+}
