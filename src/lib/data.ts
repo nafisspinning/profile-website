@@ -1,3 +1,9 @@
+const basePath = process.env.PAGES_BASE_PATH ?? "";
+
+export function withBasePath(path: string) {
+  return `${basePath}${path}`;
+}
+
 export const profile = {
   name: "Muhammad Nafis Hibatullah",
   role: "Full-Stack Software Developer",
@@ -35,7 +41,7 @@ const galleryImages = [
   "/projects/gallery-1.svg",
   "/projects/gallery-2.svg",
   "/projects/gallery-3.svg",
-];
+].map(withBasePath);
 
 export type Project = {
   slug: string;
@@ -80,7 +86,7 @@ export const projects: Project[] = [
     result:
       "Reduced time spent reconciling sales reports by an estimated 60% and gave the operations team a single source of truth for daily decision-making.",
     tags: ["React", "TypeScript", "Tailwind CSS"],
-    image: "/projects/project-1.svg",
+    image: withBasePath("/projects/project-1.svg"),
     gallery: galleryImages,
     demoUrl: "#",
     repoUrl: "#",
@@ -108,7 +114,7 @@ export const projects: Project[] = [
     result:
       "Teams using the tool reported clearer ownership and a noticeable drop in status-update meetings.",
     tags: ["Next.js", "Node.js", "PostgreSQL"],
-    image: "/projects/project-2.svg",
+    image: withBasePath("/projects/project-2.svg"),
     gallery: galleryImages,
     demoUrl: "#",
     repoUrl: "#",
@@ -136,7 +142,7 @@ export const projects: Project[] = [
     result:
       "Early testers reported a clearer understanding of their spending patterns within the first week of use.",
     tags: ["React", "Chart.js", "MongoDB"],
-    image: "/projects/project-3.svg",
+    image: withBasePath("/projects/project-3.svg"),
     gallery: galleryImages,
     demoUrl: "#",
     repoUrl: "#",
@@ -164,7 +170,7 @@ export const projects: Project[] = [
     result:
       "Grew to an actively used collection of community-submitted recipes within the first few months of launch.",
     tags: ["Next.js", "Express", "REST API"],
-    image: "/projects/project-4.svg",
+    image: withBasePath("/projects/project-4.svg"),
     gallery: galleryImages,
     demoUrl: "#",
     repoUrl: "#",
