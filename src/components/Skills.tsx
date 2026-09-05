@@ -1,4 +1,4 @@
-import { skills } from "@/lib/data";
+import { languages, skills } from "@/lib/data";
 
 export default function Skills() {
   return (
@@ -33,6 +33,22 @@ export default function Skills() {
                 ))}
               </ul>
             </div>
+          ))}
+        </div>
+
+        <div className="mt-6 flex flex-wrap items-center gap-3 border border-border bg-card px-6 py-5 text-sm sm:gap-4">
+          <span className="font-heading font-semibold text-foreground">
+            Languages
+          </span>
+          <span aria-hidden className="h-1 w-1 flex-none bg-border" />
+          {languages.map((lang, i) => (
+            <span key={lang.name} className="text-muted-foreground">
+              {lang.name}{" "}
+              <span className="text-foreground/70">({lang.level})</span>
+              {i < languages.length - 1 && (
+                <span className="ml-3 text-border sm:ml-4">/</span>
+              )}
+            </span>
           ))}
         </div>
       </div>

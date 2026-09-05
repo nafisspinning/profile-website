@@ -1,9 +1,9 @@
 import { profile } from "@/lib/data";
 
-const stats = [
-  { label: "Years of Experience", value: "3+" },
-  { label: "Projects Completed", value: "20+" },
-  { label: "Happy Clients", value: "10+" },
+const highlights = [
+  { label: "Status", value: "Fresh Graduate" },
+  { label: "Focus", value: "Fullstack Web & Mobile" },
+  { label: "Looking for", value: "New Opportunities" },
 ];
 
 export default function About() {
@@ -24,14 +24,14 @@ export default function About() {
             {profile.about}
           </p>
 
-          <div className="grid grid-cols-3 gap-6 self-start border border-border bg-card p-8">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <p className="font-heading text-3xl font-bold text-primary sm:text-4xl">
-                  {stat.value}
+          <div className="flex flex-col gap-6 self-start divide-y divide-border border border-border bg-card p-8 sm:gap-7">
+            {highlights.map((item) => (
+              <div key={item.label} className="pt-6 first:pt-0">
+                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                  {item.label}
                 </p>
-                <p className="mt-2 text-xs font-medium text-muted-foreground sm:text-sm">
-                  {stat.label}
+                <p className="mt-1.5 font-heading text-lg font-semibold text-foreground sm:text-xl">
+                  {item.value}
                 </p>
               </div>
             ))}

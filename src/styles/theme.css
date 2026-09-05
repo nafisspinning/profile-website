@@ -2,7 +2,7 @@
  * Single source of truth for the site's color palette.
  * Change a value here and it updates everywhere that token is used
  * (via Tailwind utilities like bg-background, text-foreground, etc.)
- * Do not hardcode hex colors in components — add or edit a token here instead.
+ * Do not hardcode hex colors in components - add or edit a token here instead.
  */
 
 :root {
@@ -15,7 +15,7 @@
   --muted-foreground: #6b6b6b; /* secondary / muted text */
   --border: #e2e2dc;
 
-  --primary: #111111; /* ink — high-contrast structural color (buttons, avatar block) */
+  --primary: #111111; /* ink - high-contrast structural color (buttons, avatar block) */
   --primary-foreground: #ffffff; /* text/content on top of --primary */
 
   --accent: #f5c518; /* brand yellow */
@@ -25,7 +25,7 @@
 }
 
 [data-theme="dark"] {
-  /* Dark Theme — each surface is a visible step lighter than the one below it
+  /* Dark Theme - each surface is a visible step lighter than the one below it
      (background < muted < card < card-hover) so panels read as elevated
      instead of blending into the page. */
   --background: #0a0a0a;

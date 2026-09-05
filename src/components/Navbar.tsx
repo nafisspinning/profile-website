@@ -16,8 +16,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const firstName = profile.name.split(" ")[0];
-
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
@@ -31,7 +29,7 @@ export default function Navbar() {
           href="/"
           className="font-heading text-lg font-bold tracking-tight text-foreground"
         >
-          {firstName}
+          {profile.displayName}
           <span className="text-accent">.</span>
         </Link>
 

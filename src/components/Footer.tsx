@@ -9,7 +9,13 @@ export default function Footer() {
         <p>
           &copy; {year} {profile.name}. All rights reserved.
         </p>
-        <p>Built with Next.js & Tailwind CSS.</p>
+        <a
+          href="#home"
+          className="inline-flex items-center gap-1.5 font-semibold text-foreground/80 transition-colors hover:text-primary"
+        >
+          Back to top
+          <span aria-hidden>↑</span>
+        </a>
       </div>
     </footer>
   );

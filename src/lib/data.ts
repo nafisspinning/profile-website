@@ -6,15 +6,17 @@ export function withBasePath(path: string) {
 
 export const profile = {
   name: "Muhammad Nafis Hibatullah",
-  role: "Full-Stack Software Developer",
+  displayName: "Nafis",
+  role: "Software Engineer",
   tagline: "I build clean, fast, and reliable web experiences.",
   intro:
-    "I'm a software developer focused on crafting modern, performant web applications. I enjoy turning complex problems into simple, elegant interfaces — from pixel-perfect frontends to robust backend systems.",
+    "I’m a software engineer passionate about building clean, fast, and reliable web experiences. I turn complex problems into simple, elegant, and scalable software with a strong focus on performance, usability, and thoughtful design.",
   about:
-    "With a strong foundation in modern web technologies, I specialize in building responsive, accessible, and maintainable products. I care deeply about clean code, thoughtful design, and delivering real value to the people who use what I build. When I'm not coding, I'm usually exploring new tools, contributing to side projects, or refining my craft.",
+    "I'm a fresh Information Systems graduate with a passion for building fullstack web and mobile applications. I enjoy turning ideas into clean, scalable and functional software. I'm currently looking for opportunities to contribute to meaningful projects, and learn alongside on a real software engineer team.",
   location: "Jakarta, Indonesia",
   email: "muhammadnafishibatullah@gmail.com",
   resumeUrl: "#",
+  photo: withBasePath("/images/profile.jpg"),
   socials: {
     github: "https://github.com/nafisspinning",
     linkedin: "https://id.linkedin.com/in/muhammadnafishibatullah-",
@@ -24,24 +26,39 @@ export const profile = {
 
 export const skills = [
   {
-    category: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Redux"],
+    category: "Programming Languages",
+    items: ["HTML", "CSS", "SQL", "Java", "JavaScript", "Python", "Dart"],
   },
   {
-    category: "Backend",
-    items: ["Node.js", "Express", "PostgreSQL", "MongoDB", "REST APIs"],
+    category: "Frameworks & Libraries",
+    items: ["Spring Boot", "Flutter", "Next", "Vite", "Django", "React", "Tailwind CSS", "Bootstrap"],
   },
   {
-    category: "Tools & Platforms",
-    items: ["Git", "Docker", "Vercel", "Figma", "CI/CD"],
+    category: "Databases",
+    items: ["PostgreSQL", "MySQL", "Firebase"],
+  },
+  {
+    category: "Dev Tools & CI/CD",
+    items: ["Vs Code","Postman", "Dbeaver", "Docker", "Nginx", "GitHub Actions", "GitLab CI/CD"],
+  },
+  {
+    category: "Management & Design Tools",
+    items: ["Figma", "Odoo" , "Microsoft Office", "Google Workspace"],
+  },
+  {
+    category: "Ways of Working",
+    items: ["Agile (Scrum)", "Waterfall"],
   },
 ];
 
-const galleryImages = [
-  "/projects/gallery-1.svg",
-  "/projects/gallery-2.svg",
-  "/projects/gallery-3.svg",
-].map(withBasePath);
+export const languages = [
+  { name: "Bahasa Indonesia", level: "Native" },
+  { name: "English", level: "Fluent" },
+];
+
+function projectImages(paths: string[]) {
+  return paths.map((path) => withBasePath(`/projects/${path}`));
+}
 
 export type Project = {
   slug: string;
@@ -60,144 +77,111 @@ export type Project = {
   gallery: string[];
   demoUrl: string;
   repoUrl: string;
+  backendRepoUrl?: string;
 };
 
 export const projects: Project[] = [
   {
-    slug: "ecommerce-dashboard",
-    title: "E-Commerce Dashboard",
+    slug: "bacaspring",
+    title: "BacaSpring - Book Catalog Manager",
     description:
-      "A modern admin dashboard for managing products, orders, and analytics with real-time data visualization.",
+      "A fullstack book catalog manager for tracking books, publishers, and authors, backed by a documented REST API.",
     overview:
-      "A centralized admin dashboard that gives store operators full visibility into products, orders, and customer behavior through real-time analytics and reporting.",
+      "BacaSpring is a CRUD admin tool for managing a library-style book catalog - books, publishers, and authors - with search, pagination, and a live backend connection indicator.",
     category: "Web Application",
     year: "2024",
-    role: "Lead Frontend Developer",
+    role: "Fullstack Developer",
     challenge:
-      "The client's existing spreadsheet-based workflow made it slow and error-prone to track inventory and sales performance across multiple channels, causing delayed decision-making.",
+      "Needed a straightforward way to manage a growing book catalog with relational data - books linked to publishers and multiple authors - without reaching for a bloated admin framework.",
     solution:
-      "Designed and built a single-page dashboard that consolidates product, order, and analytics data into a clear, role-based interface, with real-time charts highlighting the metrics that matter most.",
+      "Built a lightweight catalog manager with searchable, paginated tables for books, publishers, and authors, backed by a Spring Boot REST API fully documented with Swagger/OpenAPI.",
     process: [
-      "Audited existing spreadsheets and interviewed store operators to map core workflows.",
-      "Designed a modular component system and information hierarchy in Figma.",
-      "Built the dashboard with React and TypeScript, integrating chart and table components.",
-      "Ran usability testing with the operations team and refined navigation and filters.",
+      "Designed the data model for books, publishers, and authors, including many-to-many author relationships.",
+      "Built REST endpoints for full CRUD operations across all three resources.",
+      "Documented every endpoint with Swagger/OpenAPI for easy testing and reference.",
+      "Implemented a searchable, paginated frontend with a live backend connection status indicator.",
     ],
     result:
-      "Reduced time spent reconciling sales reports by an estimated 60% and gave the operations team a single source of truth for daily decision-making.",
-    tags: ["React", "TypeScript", "Tailwind CSS"],
-    image: withBasePath("/projects/project-1.svg"),
-    gallery: galleryImages,
+      "A working catalog currently tracking a growing set of books, ready to extend with more admin features.",
+    tags: ["Spring Boot", "Java", "REST API", "Swagger"],
+    image: projectImages(["bacaspring-1.png"])[0],
+    gallery: projectImages([
+      "bacaspring-1.png",
+      "bacaspring-2.png",
+      "bacaspring-3.png",
+    ]),
     demoUrl: "#",
-    repoUrl: "#",
+    repoUrl: "https://github.com/nafisspinning/bacabaca",
   },
   {
-    slug: "task-management-app",
-    title: "Task Management App",
+    slug: "presence-app",
+    title: "Presence - Employee Attendance App",
     description:
-      "A collaborative task manager with drag-and-drop boards, deadlines, and team notifications.",
+      "A mobile attendance app with GPS-based check-in/out, attendance history, and admin tools for managing employees.",
     overview:
-      "A Kanban-style collaboration tool that helps small teams plan sprints, track progress, and stay aligned without switching between multiple tools.",
-    category: "Product Design & Development",
+      "Presence is a mobile app for employee check-in/check-out, giving admins visibility into attendance history, in/out-of-area presence, and distance-based attendance statistics.",
+    category: "Mobile Application",
     year: "2023",
-    role: "Full-Stack Developer",
+    role: "Mobile Developer",
     challenge:
-      "Distributed teams struggled to keep task status, deadlines, and ownership in sync, leading to missed handoffs and duplicated work.",
+      "Manual attendance tracking made it hard to verify whether employees were actually checking in from the office, and gave admins no easy way to review attendance trends.",
     solution:
-      "Built a drag-and-drop board with real-time status updates, deadline reminders, and per-user notifications so every team member always knows what's next.",
+      "Built a mobile app that records check-in/check-out with location data, flags whether each entry was inside or outside the designated area, and visualizes attendance distance trends over time.",
     process: [
-      "Mapped team workflows and defined the core data model for boards, tasks, and members.",
-      "Prototyped drag-and-drop interactions and validated them with target users.",
-      "Implemented the board, notifications, and deadline logic end-to-end.",
-      "Iterated on performance for boards with hundreds of cards.",
+      "Designed the Home, Statistics, and Profile flows for both employees and admins.",
+      "Implemented GPS-based check-in/check-out with in-area/out-of-area detection.",
+      "Built an attendance statistics view charting check-in distance over the last 30 entries.",
+      "Added admin-only tools for managing employee profiles.",
     ],
     result:
-      "Teams using the tool reported clearer ownership and a noticeable drop in status-update meetings.",
-    tags: ["Next.js", "Node.js", "PostgreSQL"],
-    image: withBasePath("/projects/project-2.svg"),
-    gallery: galleryImages,
+      "A functioning attendance system tracking real check-in/out history with distance-based statistics.",
+    tags: ["Mobile App", "iOS", "Geolocation", "REST API"],
+    image: projectImages(["presence-app-1.png"])[0],
+    gallery: projectImages([
+      "presence-app-1.png",
+      "presence-app-2.png",
+      "presence-app-3.png",
+    ]),
     demoUrl: "#",
-    repoUrl: "#",
+    repoUrl: "https://github.com/nafisspinning/presence-app",
   },
   {
-    slug: "personal-finance-tracker",
-    title: "Personal Finance Tracker",
+    slug: "todolist-app",
+    title: "Todolist - Project & Task Manager",
     description:
-      "A budgeting app that visualizes spending habits and helps users set and track financial goals.",
+      "A project-based to-do list app for organizing tasks by project, complete with due dates and a documented backend API.",
     overview:
-      "A personal finance companion that turns raw transaction data into clear visual insights, helping users build better saving habits.",
-    category: "Mobile-First Web App",
-    year: "2023",
-    role: "Frontend Developer",
+      "A simple project and task manager where users organize work into projects, each with its own due date, description, and task list.",
+    category: "Web Application",
+    year: "2026",
+    role: "Fullstack Developer",
     challenge:
-      "Users found existing budgeting apps overwhelming, with too many manual categories and no clear feedback on progress toward their goals.",
+      "Needed a lightweight way to group related tasks under projects with deadlines, instead of one long, unorganized to-do list.",
     solution:
-      "Created a simplified tracker with automatic spending categorization, goal progress bars, and clean charts that surface trends at a glance.",
+      "Built a two-panel interface - a project sidebar and a task workspace - backed by a separate REST API for managing projects and tasks, with the frontend deployed on Vercel and the backend on Railway.",
     process: [
-      "Researched common budgeting pain points through user interviews.",
-      "Designed a minimal, chart-first interface with clear visual hierarchy.",
-      "Built interactive charts and goal-tracking components with React and Chart.js.",
-      "Tested on mobile devices to ensure a smooth touch experience.",
+      "Designed the data model separating projects and their tasks.",
+      "Built REST endpoints for project and task CRUD operations, documented with Swagger/OpenAPI.",
+      "Implemented the project sidebar and task workspace on the frontend.",
+      "Deployed the frontend to Vercel and the backend to Railway as two independent repos.",
     ],
-    result:
-      "Early testers reported a clearer understanding of their spending patterns within the first week of use.",
-    tags: ["React", "Chart.js", "MongoDB"],
-    image: withBasePath("/projects/project-3.svg"),
-    gallery: galleryImages,
-    demoUrl: "#",
-    repoUrl: "#",
-  },
-  {
-    slug: "recipe-discovery-platform",
-    title: "Recipe Discovery Platform",
-    description:
-      "A recipe search and sharing platform with saved collections and step-by-step cooking guides.",
-    overview:
-      "A community-driven recipe platform where home cooks can discover, save, and follow step-by-step cooking guides tailored to their preferences.",
-    category: "Content Platform",
-    year: "2022",
-    role: "Full-Stack Developer",
-    challenge:
-      "Recipe content across the web is scattered and inconsistent, making it hard for users to find recipes that match their dietary needs and skill level.",
-    solution:
-      "Built a searchable platform with structured recipe data, saved collections, and a guided step-by-step cooking mode designed for use in the kitchen.",
-    process: [
-      "Defined a structured recipe schema covering ingredients, steps, and dietary tags.",
-      "Built search and filtering with Express and a REST API.",
-      "Designed a distraction-free, step-by-step cooking mode for mobile screens.",
-      "Added saved collections and sharing features based on early user feedback.",
-    ],
-    result:
-      "Grew to an actively used collection of community-submitted recipes within the first few months of launch.",
-    tags: ["Next.js", "Express", "REST API"],
-    image: withBasePath("/projects/project-4.svg"),
-    gallery: galleryImages,
-    demoUrl: "#",
-    repoUrl: "#",
+    result: "A working task manager for organizing day-to-day tasks by project, live in production.",
+    tags: ["React", "Spring Boot", "REST API"],
+    image: projectImages(["todolist-app-cover.png"])[0],
+    gallery: projectImages(["todolist-app-1.png", "todolist-app-2.png"]),
+    demoUrl: "https://frontend-todolist-ten.vercel.app/",
+    repoUrl: "https://github.com/nafisspinning/frontend-todolist",
+    backendRepoUrl: "https://github.com/nafisspinning/backend-todolist",
   },
 ];
 
 export const experience = [
   {
-    role: "Software Developer",
-    org: "Tech Company Inc.",
-    period: "2023 — Present",
+    role: "Information Systems",
+    org: "Universitas Indonesia - Faculty of Computer Science",
+    period: "2019 - 2025",
     description:
-      "Building and maintaining web applications, collaborating with cross-functional teams to ship features from design to production.",
-  },
-  {
-    role: "Frontend Developer Intern",
-    org: "Digital Agency Studio",
-    period: "2022 — 2023",
-    description:
-      "Developed responsive client websites and internal tools, improving load performance and accessibility.",
-  },
-  {
-    role: "Computer Science",
-    org: "University Name",
-    period: "2019 — 2023",
-    description:
-      "Studied software engineering fundamentals, data structures, and web development.",
+      "Studying information systems, covering software engineering, systems analysis, databases, and how technology supports business decision-making.",
   },
 ];
 

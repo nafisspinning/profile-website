@@ -17,7 +17,7 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Muhammad Nafis Hibatullah | Software Developer",
   description:
-    "Personal portfolio of Muhammad Nafis Hibatullah — software developer building clean, modern web experiences.",
+    "Personal portfolio of Muhammad Nafis Hibatullah - software developer building clean, modern web experiences.",
 };
 
 const THEME_INIT_SCRIPT = `

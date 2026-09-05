@@ -94,6 +94,14 @@ export default async function ProjectDetailPage({
               >
                 Source Code
               </a>
+              {project.backendRepoUrl && (
+                <a
+                  href={project.backendRepoUrl}
+                  className="inline-flex items-center justify-center rounded-md border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  Backend Repo
+                </a>
+              )}
             </div>
           </div>
         </section>
