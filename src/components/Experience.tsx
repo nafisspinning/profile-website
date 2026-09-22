@@ -17,9 +17,9 @@ export default function Experience() {
           {experience.map((item) => (
             <li key={item.role + item.org} className="mb-12 last:mb-0">
               <span className="absolute -left-[7px] mt-1.5 h-3 w-3 border-2 border-background bg-accent" />
-              <p className="text-xs font-semibold uppercase tracking-wide text-primary/80">
+              {/* <p className="text-xs font-semibold uppercase tracking-wide text-primary/80">
                 {item.period}
-              </p>
+              </p> */}
               <h3 className="mt-1 font-heading text-xl font-semibold text-foreground">
                 {item.role}
               </h3>
