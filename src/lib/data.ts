@@ -179,7 +179,6 @@ export const experience = [
   {
     role: "Information Systems",
     org: "Universitas Indonesia - Faculty of Computer Science",
-    period: "2019 - 2025",
     description:
       "Studying information systems, covering software engineering, systems analysis, databases, and how technology supports business decision-making.",
   },
